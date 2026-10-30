@@ -78,8 +78,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Chelate" },
-      { name: "description", content: "Securing the agentic CI/CD." },
+      { title: "Chelate Sec — Securing the Agentic CI/CD" },
+      { name: "description", content: "Chelate watches your CI agents so a stranger's issue comment can't turn them against you. Shrike scans, Titra blocks at runtime." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
