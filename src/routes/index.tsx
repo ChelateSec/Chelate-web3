@@ -233,8 +233,7 @@ function Index() {
                     Shrike scanned Threlte's GitHub Actions workflows and identified a critical vulnerability
                     where an attacker could inject malicious code through workflow manipulation. The scanner flagged
                     dangerous permission combinations and untrusted input flowing into pipeline execution contexts —
-                    exactly the kind of exploitable path that generic linters miss. This vulnerability existed in a
-                    traditional CI/CD workflow, proving that pipeline security isn't just an AI agent problem.
+                    exactly the kind of exploitable path that generic linters miss.
                   </p>
                 </div>
 
@@ -249,14 +248,12 @@ function Index() {
                 </div>
 
                 <div className="rounded-sm border border-border bg-paper p-6">
-                  <h4 className="font-display text-xl font-bold tracking-tight">How Our Tools Secure Both</h4>
+                  <h4 className="font-display text-xl font-bold tracking-tight">How Titra Secures This</h4>
                   <p className="mt-3 leading-relaxed text-muted-foreground">
-                    Shrike finds these vulnerabilities whether they're in traditional workflows or agentic systems —
-                    the attack surface is the same. With Titra installed, this type of vulnerability would be blocked
-                    at runtime before any damage could occur. Titra monitors every action in your pipelines — git operations,
-                    credential access, package publishes — whether triggered by a human, a script, or an AI agent.
-                    You get complete visibility into what's running in your CI/CD, with the ability to stop dangerous
-                    moves in real time. The same protection works for both your existing workflows and your agentic ones.
+                    With Titra installed, this vulnerability would have been blocked at runtime before any damage could occur.
+                    Titra monitors every action in your pipelines — git operations, credential access, package publishes —
+                    whether triggered by traditional CI/CD workflows or AI agents. You get complete visibility into what's
+                    running and the ability to block dangerous moves in real time.
                   </p>
                 </div>
               </div>
