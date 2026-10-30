@@ -103,7 +103,7 @@ function Index() {
         <img
           src={shrike}
           alt="Halftone shrike perched on a branch, facing the headline"
-          className="drift absolute inset-0 -z-10 h-full w-full object-cover object-left"
+          className="drift absolute inset-0 -z-10 h-full w-full object-cover object-[13%_center] md:object-left"
         />
         {/* Soft scrim so the headline stays readable on bright wide screens */}
         <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-full bg-gradient-to-l from-sonic/90 via-sonic/60 to-transparent md:w-3/5" />
