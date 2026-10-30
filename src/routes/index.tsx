@@ -215,7 +215,7 @@ function Index() {
             </div>
             <div className="p-8 md:p-10">
               <h3 className="font-display text-3xl font-black tracking-tight md:text-4xl">
-                Threlte Supply Chain Vulnerability
+                Threlte Pipeline Vulnerability
               </h3>
               <a
                 href="https://github.com/threlte/threlte/security/advisories/GHSA-p368-h5pf-7fc2"
@@ -230,10 +230,11 @@ function Index() {
                 <div>
                   <h4 className="font-display text-xl font-bold tracking-tight">How Shrike Found It</h4>
                   <p className="mt-3 leading-relaxed text-sea">
-                    Shrike scanned Threlte's GitHub Actions workflows and identified a critical supply chain vulnerability
+                    Shrike scanned Threlte's GitHub Actions workflows and identified a critical vulnerability
                     where an attacker could inject malicious code through workflow manipulation. The scanner flagged
                     dangerous permission combinations and untrusted input flowing into pipeline execution contexts —
-                    exactly the kind of exploitable path that generic linters miss.
+                    exactly the kind of exploitable path that generic linters miss. This vulnerability existed in a
+                    traditional CI/CD workflow, proving that pipeline security isn't just an AI agent problem.
                   </p>
                 </div>
 
@@ -248,13 +249,14 @@ function Index() {
                 </div>
 
                 <div className="rounded-sm border border-border bg-paper p-6">
-                  <h4 className="font-display text-xl font-bold tracking-tight">How Titra Secures This</h4>
+                  <h4 className="font-display text-xl font-bold tracking-tight">How Our Tools Secure Both</h4>
                   <p className="mt-3 leading-relaxed text-muted-foreground">
-                    With Titra installed, this vulnerability would have been blocked at runtime before any damage could occur.
-                    Titra monitors every action your CI agents take — git operations, credential access, package publishes —
-                    and blocks dangerous moves in real time. You get complete visibility into what your automated systems
-                    are doing, with the ability to stop them when they step out of bounds. Think of it as a runtime firewall
-                    for your agentic workflows.
+                    Shrike finds these vulnerabilities whether they're in traditional workflows or agentic systems —
+                    the attack surface is the same. With Titra installed, this type of vulnerability would be blocked
+                    at runtime before any damage could occur. Titra monitors every action in your pipelines — git operations,
+                    credential access, package publishes — whether triggered by a human, a script, or an AI agent.
+                    You get complete visibility into what's running in your CI/CD, with the ability to stop dangerous
+                    moves in real time. The same protection works for both your existing workflows and your agentic ones.
                   </p>
                 </div>
               </div>
