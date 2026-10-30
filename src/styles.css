@@ -114,15 +114,47 @@
 
 /* Subtle motion */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes rise-slow { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes slide-in-left { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+@keyframes slide-in-right { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
+@keyframes scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes drift { 0%,100% { transform: scale(1.02) translateY(0); } 50% { transform: scale(1.04) translateY(-6px); } }
+
 @utility reveal {
   animation: rise 0.9s ease-out both;
   animation-timeline: view();
   animation-range: entry 0% entry 40%;
 }
+@utility reveal-slow {
+  animation: rise-slow 1.2s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+@utility slide-left {
+  animation: slide-in-left 1s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+@utility slide-right {
+  animation: slide-in-right 1s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+@utility scale-up {
+  animation: scale-in 1s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+@utility fade {
+  animation: fade-in 1.2s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
 @utility marquee { animation: marquee 60s linear infinite; }
 @utility drift { animation: drift 18s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .marquee, .drift { animation: none; }
+  .reveal, .reveal-slow, .slide-left, .slide-right, .scale-up, .fade, .marquee, .drift { animation: none; }
 }

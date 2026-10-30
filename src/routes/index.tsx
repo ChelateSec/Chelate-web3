@@ -4,27 +4,6 @@ import shrike from "@/assets/shrike-halftone-left.png";
 const ORG = "https://github.com/ChelateSec";
 const REPO = "https://github.com/ChelateSec/shrike";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Chelate — Securing the agentic CI/CD" },
-      {
-        name: "description",
-        content:
-          "Chelate watches your CI agents so a stranger's issue comment can't turn them against you. Shrike scans, Titra blocks at runtime.",
-      },
-      { property: "og:title", content: "Chelate — Securing the agentic CI/CD" },
-      {
-        property: "og:description",
-        content: "Open-source pipeline scanning with Shrike. Runtime control of CI agents with Titra.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
-
 const posts = [
   { tag: "Product", title: "Chelate Sec: Securing the Agentic CI/CD", href: "/blogs/shrike-launch" },
   { tag: "How", title: "Why our blocks are deterministic, never an AI", href: "#how" },
@@ -58,6 +37,28 @@ const principles = [
   ["06", "Open where it secures most", "The scanner is free and open so the whole ecosystem can check itself. We charge for scale."],
 ];
 
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Chelate — Securing the agentic CI/CD" },
+      {
+        name: "description",
+        content:
+          "Chelate watches your CI agents so a stranger's issue comment can't turn them against you. Shrike scans, Titra blocks at runtime.",
+      },
+      { property: "og:title", content: "Chelate — Securing the agentic CI/CD" },
+      {
+        property: "og:description",
+        content: "Open-source pipeline scanning with Shrike. Runtime control of CI agents with Titra.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "generator", content: "" },
+    ],
+  }),
+  component: Index,
+});
+
 function ChelateMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden className={className}>
@@ -86,7 +87,6 @@ function Index() {
             chelate
           </a>
           <div className="order-3 flex w-full flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-widest md:order-none md:w-auto md:gap-8 md:text-xs">
-            <a href="#problem" className="opacity-80 hover:opacity-100">Problem</a>
             <a href="#product" className="opacity-80 hover:opacity-100">Product</a>
             <a href="#how" className="opacity-80 hover:opacity-100">How</a>
             <a href="/blogs" className="opacity-80 hover:opacity-100">Blogs</a>
@@ -110,19 +110,24 @@ function Index() {
         <div className="mx-auto grid min-h-[100svh] max-w-7xl grid-rows-[1fr_auto] px-6 pb-12 pt-32">
           <div className="flex flex-col items-end text-right">
             <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-sea">
-              Loggerhead Shrike | Lanius ludovicianus
+              CI/CD Security
             </p>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.25em] opacity-70">
-              Chelate · CI/CD Field Guide 2026
+              Chelate
             </p>
           </div>
           <div className="grid gap-10 md:grid-cols-12 md:items-end">
-            <h1 className="reveal font-display text-[clamp(3.2rem,9vw,8.5rem)] font-black leading-[0.86] tracking-tighter md:col-span-8 md:col-start-5 md:text-right">
-              Securing the
-              <br />
-              <span className="text-tomato">agentic</span> CI/CD.
-            </h1>
-            <p className="max-w-sm text-lg leading-snug text-sea md:col-span-4 md:row-start-1">
+            <div className="md:col-span-8 md:col-start-5 md:text-right">
+              <h1 className="reveal-slow font-display text-[clamp(3.2rem,9vw,8.5rem)] font-black leading-[0.86] tracking-tighter">
+                Securing the
+                <br />
+                <span className="text-tomato">agentic</span> CI/CD.
+              </h1>
+              <p className="reveal mt-6 font-display text-[clamp(1.5rem,3vw,2.5rem)] font-bold leading-tight tracking-tight opacity-80">
+                Don't let your workflows work against you
+              </p>
+            </div>
+            <p className="slide-left max-w-sm text-lg leading-snug text-sea md:col-span-4 md:row-start-1">
               You gave an AI agent the keys to your repo and a desk inside your pipeline. Nobody
               checks what it does all day. <span className="text-ink">We do.</span>
               <span className="mt-4 block font-mono text-xs uppercase tracking-[0.25em] text-ink/80">
@@ -130,13 +135,21 @@ function Index() {
               </span>
             </p>
           </div>
+          <div className="reveal mt-10 flex flex-wrap gap-3">
+            <a href="#get-started" className="rounded-sm bg-tomato px-6 py-3 font-mono text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90">
+              Get Started
+            </a>
+            <a href={ORG} className="rounded-sm border border-ink px-6 py-3 font-mono text-sm uppercase tracking-widest hover:bg-ink/10">
+              View on GitHub
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Blog strip */}
+      {/* Moving titles strip */}
       <div className="flex items-stretch border-y border-ink bg-sonic font-mono text-xs text-ink">
         <span className="shrink-0 border-r border-ink/20 px-5 py-4 uppercase tracking-widest text-sea">
-          Latest / Blogs
+          Shrike · Titra
         </span>
         <div className="relative flex-1 overflow-hidden">
           <div className="marquee flex w-max gap-12 py-4">
@@ -148,36 +161,104 @@ function Index() {
             ))}
           </div>
         </div>
-        <a href="/blogs" className="hidden shrink-0 border-l border-ink/20 px-5 py-4 uppercase tracking-widest hover:text-sea sm:block">
-          All blogs ↗
-        </a>
       </div>
 
-      {/* Problem */}
+      {/* The Problem */}
       <section id="problem" className="relative scroll-mt-4 bg-paper text-ink">
         <div className="halftone-fade pointer-events-none absolute inset-x-0 top-0 h-64 text-sonic" />
-        <ChelateMark className="pointer-events-none absolute bottom-10 right-8 hidden h-28 w-28 -rotate-6 text-sea opacity-15 lg:block" />
-        <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-28 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-tomato">/ The problem</p>
-            <h2 className="reveal mt-6 font-display text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">
-              Untrusted input, right next to production credentials.
+        <ChelateMark className="fade pointer-events-none absolute bottom-10 right-8 hidden h-28 w-28 -rotate-6 text-sea opacity-15 lg:block" />
+        <div className="relative mx-auto max-w-7xl px-6 py-28">
+          <div className="text-center">
+            <h2 className="reveal-slow font-display text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">
+              The Problem
             </h2>
+            <p className="reveal mt-6 font-display text-3xl font-bold text-tomato md:text-4xl">
+              Your pipelines are the easiest way in
+            </p>
           </div>
-          <div className="reveal relative space-y-6 rounded-sm border border-sea/30 bg-sonic/15 p-8 text-lg leading-relaxed text-sea md:col-span-6 md:col-start-7">
-            <span className="absolute -top-3 left-6 bg-paper px-2 font-mono text-[10px] uppercase tracking-[0.3em] text-tomato">incident.log</span>
-            <p>
-              A stranger opens an issue, a PR, or a comment — and a workflow runs holding the
-              repo's write token, publishing keys, and cloud secrets.
-            </p>
-            <p>
-              Teams now drop agents into their pipelines to review PRs and fix issues. Agents
-              that read whatever a stranger writes, and act with those same credentials.
-            </p>
-            <p className="border-l-2 border-tomato pl-5 text-ink">
-              One poisoned comment and the agent pushes bad code, approves a PR, or leaks a
-              secret. And nobody sees it happen.
-            </p>
+
+          <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2">
+            <div className="slide-left bg-sonic p-10">
+              <h3 className="font-display text-3xl font-black tracking-tight">GitHub Actions are easy to break</h3>
+              <p className="mt-6 text-lg leading-relaxed text-sea">
+                Pwn requests, script injection, over-broad tokens, and secrets reachable by outsiders keep showing up in major projects. Existing scanners report long lists of "risks," most not exploitable, so teams ignore them.
+              </p>
+            </div>
+            <div className="slide-right bg-sonic p-10">
+              <h3 className="font-display text-3xl font-black tracking-tight">Agentic AI systems operate in your pipelines</h3>
+              <p className="mt-6 text-lg leading-relaxed text-sea">
+                Autonomous agents triage issues, review code, deploy infrastructure, and orchestrate releases. They process untrusted inputs and execute with privileged access. A single prompt injection can exfiltrate secrets, manipulate repositories, or compromise supply chains.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study: Threlte */}
+      <section className="relative bg-paper pb-28 text-ink">
+        <div className="mx-auto max-w-5xl px-6">
+          {/* Arrow pointing down */}
+          <div className="fade flex justify-center">
+            <svg className="h-12 w-12 text-tomato" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+
+          <div className="scale-up mt-6 overflow-hidden rounded-sm border-2 border-tomato bg-sonic">
+            <div className="border-b border-tomato/30 bg-tomato/10 px-6 py-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-sm bg-tomato px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-primary-foreground">
+                  Case Study
+                </span>
+                <span className="font-mono text-sm text-sea">Real-world discovery</span>
+              </div>
+            </div>
+            <div className="p-8 md:p-10">
+              <h3 className="font-display text-3xl font-black tracking-tight md:text-4xl">
+                Threlte Supply Chain Vulnerability
+              </h3>
+              <a
+                href="https://github.com/threlte/threlte/security/advisories/GHSA-p368-h5pf-7fc2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 font-mono text-sm text-tomato underline underline-offset-4 hover:text-ink"
+              >
+                GHSA-p368-h5pf-7fc2 ↗
+              </a>
+
+              <div className="mt-8 space-y-6">
+                <div>
+                  <h4 className="font-display text-xl font-bold tracking-tight">How Shrike Found It</h4>
+                  <p className="mt-3 leading-relaxed text-sea">
+                    Shrike scanned Threlte's GitHub Actions workflows and identified a critical supply chain vulnerability
+                    where an attacker could inject malicious code through workflow manipulation. The scanner flagged
+                    dangerous permission combinations and untrusted input flowing into pipeline execution contexts —
+                    exactly the kind of exploitable path that generic linters miss.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-xl font-bold tracking-tight">Coordinated Disclosure</h4>
+                  <p className="mt-3 leading-relaxed text-sea">
+                    We reported the vulnerability privately to Threlte's maintainers with a detailed exploit path and
+                    recommended remediation. The team responded quickly, patched the workflow, and published a security
+                    advisory. No exploitation occurred. This is how responsible disclosure should work — find it, fix it,
+                    then tell the world.
+                  </p>
+                </div>
+
+                <div className="rounded-sm border border-border bg-paper p-6">
+                  <h4 className="font-display text-xl font-bold tracking-tight">How Titra Secures This</h4>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    With Titra installed, this vulnerability would have been blocked at runtime before any damage could occur.
+                    Titra monitors every action your CI agents take — git operations, credential access, package publishes —
+                    and blocks dangerous moves in real time. You get complete visibility into what your automated systems
+                    are doing, with the ability to stop them when they step out of bounds. Think of it as a runtime firewall
+                    for your agentic workflows.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -304,9 +385,6 @@ function Index() {
             </a>
             <a href={ORG} className="rounded-sm border border-ink px-6 py-3 font-mono text-sm uppercase tracking-widest hover:bg-ink hover:text-paper">
               GitHub org
-            </a>
-            <a href="https://www.chelate.tech/" className="rounded-sm border border-ink px-6 py-3 font-mono text-sm uppercase tracking-widest hover:bg-ink hover:text-paper">
-              Talk to us
             </a>
           </div>
         </div>
