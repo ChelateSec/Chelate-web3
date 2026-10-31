@@ -93,17 +93,14 @@ detect_platform() {
 check_sudo() {
     if [ "$EUID" -eq 0 ]; then
         SUDO=""
+        INSTALL_DIR="/usr/local/bin"
     else
-        if command -v sudo >/dev/null 2>&1; then
-            SUDO="sudo"
-        else
-            print_warning "sudo not found. Will attempt to install to ~/.local/bin instead"
-            INSTALL_DIR="$HOME/.local/bin"
-            mkdir -p "$INSTALL_DIR"
-            return
-        fi
+        # Default to user's local bin directory to avoid sudo prompts
+        print_warning "Installing to ~/.local/bin (use sudo if you want system-wide install)"
+        INSTALL_DIR="$HOME/.local/bin"
+        mkdir -p "$INSTALL_DIR"
+        SUDO=""
     fi
-    INSTALL_DIR="/usr/local/bin"
 }
 
 # Check for required commands
